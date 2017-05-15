@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Running a Script from Text</title>
+
+<HTA:APPLICATION 
+     ID="objScriptFromText"
+     APPLICATIONNAME="Testing a Text"
+     SCROLL="auto"
+     SINGLEINSTANCE="yes"
+>
+
+</head>
+
+<SCRIPT Language="VBScript">
+    Set fso = CreateObject("Scripting.FileSystemObject")
+	Set shell = CreateObject("WScript.Shell")
+	
+	outFile = fso.BuildPath(shell.SpecialFolders("Desktop"), "proof_of_execute.txt")
+	
+	Set objFile = fso.CreateTextFile(outFile, True)
+	objFile.Write "test string" & vbCrLf
+	objFile.Close
+</SCRIPT>
+
+<body bgcolor="buttonface">
+
+</body>
+</html>
